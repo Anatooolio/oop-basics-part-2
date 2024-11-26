@@ -1,3 +1,5 @@
+const { get } = require("lodash")
+
 class Person {
 	constructor(name, age) {
 		this.name = name
@@ -53,8 +55,37 @@ const firstValues = {
 }
 
 const res1 = new Calculator(firstValues) //Создаем экземпляр, принимающий объект
-console.log(res1.add())
-console.log(res1.subtract())
-console.log(res1.multiple())
-console.log(res1.divide())
+// console.log(res1.add())
+// console.log(res1.subtract())
+// console.log(res1.multiple())
+// console.log(res1.divide())
 
+//----------------------------------------------------------------------------------
+
+class Car {
+    constructor(params) {
+        this.brand = params.brand
+        this.model = params.model
+        this.year = params.year
+    }
+    
+    getAge() {
+        let currentDate = new Date()
+        return currentDate.getFullYear() - this.year
+    }
+
+    printDetails() {
+        return `Марка: ${this.brand}, Модель: ${this.model}, Год выпуска: ${this.year}, Возраст: ${this.getAge()} лет`
+    }
+}
+
+const car = {
+    brand: 'Volkswagen',
+	model: 'Touareg',
+    year: 2014
+}
+
+const newCar = new Car(car)
+// console.log(newCar.printDetails());
+
+//-----------------------------------------------------------------------------------------------------------------------------
