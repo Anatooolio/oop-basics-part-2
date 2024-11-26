@@ -1,4 +1,4 @@
-const { get } = require("lodash")
+const { get, head } = require("lodash")
 
 class Person {
 	constructor(name, age) {
@@ -89,3 +89,36 @@ const newCar = new Car(car)
 // console.log(newCar.printDetails());
 
 //-----------------------------------------------------------------------------------------------------------------------------
+
+class Shape {
+    constructor(params) {
+        this.width = params.width
+        this.height = params.height
+    }
+
+    getArea() {
+        return this.width * this.height
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(params) {
+        super(params)
+        this.color = params.color
+    }
+
+    getArea1() {
+        return `Площадь прямоугольника ${this.color} цвета равна ${this.width * this.height}`
+    }
+}
+
+const shape = {
+    width: 30,
+    height: 3,
+    color: 'Белый'
+}
+
+const resOfShape = new Shape(shape)
+console.log(resOfShape.getArea());
+const resOfShape1 = new Rectangle(shape)
+console.log(resOfShape1.getArea1());
